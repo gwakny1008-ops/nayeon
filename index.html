@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perfume in My Phone | 폰에 붙이는 허브 향주머니</title>
+<meta name="description" content="맥세이프에 붙이고, 키링으로 달고, 지갑에 넣는 2cm 허브 향주머니">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--purple:#3B1F5E;--purple2:#6B3FA0;--ink:#2A1640;--text:#4A3060;--muted:#5A4470;--pink:#FCE4EE;--pink2:#F7B8D0;--bg:#FFF7FA;--line:#D9B8E8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Noto Sans KR',sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--purple)}a:hover{color:var(--purple2)}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.display{font-family:'Jua',sans-serif;font-weight:400;color:var(--purple);margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;border:none;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none}
+.btn-dark{background:var(--purple);color:#fff}.btn-dark:hover{background:var(--purple2);color:#fff}
+.btn-light{background:#fff;color:var(--purple)}
+.btn-pink{background:var(--pink2);color:var(--purple)}
+.topbar{background:var(--purple);color:#fff;text-align:center;font-size:14px;padding:10px 16px}
+header{background:#fff;border-bottom:1px solid #F1D9E4;position:sticky;top:0;z-index:10}
+.head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:40px;height:40px;border-radius:10px;background:var(--pink2);display:flex;align-items:center;justify-content:center}
+.logo-text{font-family:'Jua',sans-serif;font-size:24px;color:var(--purple)}
+nav{display:flex;flex-wrap:wrap;gap:24px;font-size:15px;font-weight:500}
+nav a{text-decoration:none}
+.cart{border:2px solid var(--purple);background:#fff;color:var(--purple);min-height:44px}
+section{padding:80px 0}
+.hero{background:var(--pink);padding:72px 0}
+.split{display:flex;flex-wrap:wrap;align-items:center;gap:48px}
+.split>*{flex:1 1 420px}
+.chip{align-self:flex-start;background:#fff;color:var(--purple2);font-size:14px;font-weight:700;padding:8px 14px;border-radius:999px}
+.hero h1{font-size:clamp(38px,6vw,56px);line-height:1.2}
+.lead{margin:0;font-size:18px;line-height:1.7;color:var(--text)}
+.col{display:flex;flex-direction:column;gap:20px}
+.photo{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:28px}
+.hero .photo{border:6px solid #fff}
+.features{background:#fff;padding:48px 0}
+.grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.feat{display:flex;gap:14px;align-items:flex-start}
+.feat b{display:block;font-size:17px}.feat span{font-size:14px;color:var(--muted)}
+.title{text-align:center;display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
+.title h2{font-size:clamp(30px,4vw,42px)}
+.title p{margin:0;font-size:17px;color:var(--muted)}
+.products{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 24px rgba(59,31,94,.08)}
+.card .img{position:relative}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.badge{position:absolute;top:14px;left:14px;background:var(--purple);color:#fff;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px}
+.card .body{padding:24px;display:flex;flex-direction:column;gap:14px;flex-grow:1}
+.type{font-size:14px;color:var(--purple2);font-weight:700}
+.card h3{font-family:'Jua',sans-serif;font-weight:400;font-size:28px;margin:0}
+.card p{margin:0;font-size:15px;line-height:1.6;color:var(--text)}
+.spec{font-size:14px;color:var(--muted)}
+.scents{display:flex;flex-wrap:wrap;gap:8px}
+.scent{min-height:44px;padding:0 16px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--purple);font-family:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.scent[aria-pressed="true"]{border-color:var(--purple);background:var(--purple);color:#fff;font-weight:700}
+.buy{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:8px}
+.price{font-size:26px;font-weight:700;color:var(--purple)}
+.set{margin-top:40px;background:var(--purple);color:#fff;border-radius:28px;padding:40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+.set h3{font-family:'Jua',sans-serif;font-weight:400;font-size:32px;margin:0}
+.set p{margin:0;color:#EADCF5}
+.old{color:#D9C6EA;text-decoration:line-through;font-size:15px}
+.steps .step{background:var(--pink);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px}
+.num{width:44px;height:44px;border-radius:50%;background:var(--purple);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center}
+.step h3{margin:0;font-size:20px}.step p{margin:0;font-size:15px;line-height:1.6;color:var(--text)}
+.herb{background:#fff;border-radius:16px;padding:18px 20px}
+.herb strong{color:var(--purple2)}
+.faq{max-width:820px}
+details{background:var(--bg);border-radius:16px;padding:20px 24px;margin-bottom:16px}
+summary{font-weight:700;font-size:17px;cursor:pointer}
+details p{margin:12px 0 0;font-size:15px;line-height:1.6;color:var(--text)}
+.news{background:var(--pink);text-align:center;padding:64px 0}
+.form{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.form input{flex:1 1 260px;max-width:380px;min-height:52px;padding:0 20px;border-radius:999px;border:2px solid var(--line);font-family:inherit;font-size:15px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+footer{background:var(--ink);color:#E4D6F0}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;padding-top:48px;padding-bottom:48px;font-size:14px}
+.foot div{display:flex;flex-direction:column;gap:6px}
+.copy{border-top:1px solid var(--text);text-align:center;font-size:13px;padding:16px;color:#C9B6DA}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--purple);color:#fff;padding:14px 24px;border-radius:999px;font-size:15px;opacity:0;pointer-events:none;transition:.25s;z-index:20}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="topbar">첫 구매 고객 전 제품 무료배송 · 3종 세트 구매 시 15% 할인</div>
+
+<header>
+  <div class="wrap head">
+    <a href="#top" class="logo">
+      <span class="logo-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B1F5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 9c-1.5 1.2-2 2.4-2 3.4a2 2 0 0 0 4 0c0-1-.5-2.2-2-3.4z"/></svg></span>
+      <span class="logo-text">Perfume in My Phone</span>
+    </a>
+    <nav aria-label="주 메뉴">
+      <a href="#products">제품</a><a href="#how">사용법</a><a href="#herbs">허브 이야기</a><a href="#faq">자주 묻는 질문</a>
+    </nav>
+    <button type="button" class="btn cart" aria-label="장바구니">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      장바구니 <span id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<section id="top" class="hero">
+  <div class="wrap split">
+    <div class="col">
+      <span class="chip">NEW · 2cm 허브 향주머니</span>
+      <h1 class="display">폰에 붙이는<br>나만의 작은 향기</h1>
+      <p class="lead">말린 허브를 가득 채운 손톱만 한 향주머니. 맥세이프에 착 붙이고, 키링으로 달고, 지갑에 쏙 넣어 하루 종일 은은한 향기를 들고 다니세요.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#products" class="btn btn-dark">제품 보러 가기</a>
+        <a href="#how" class="btn btn-light">사용법 보기</a>
+      </div>
+    </div>
+    <div><img class="photo" src="images/magnet.jpg" alt="핑크 나일론 향주머니가 맥세이프로 스마트폰 뒷면에 붙어 있는 모습"></div>
+  </div>
+</section>
+
+<div class="features">
+  <div class="wrap grid">
+    <div class="feat"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6B3FA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.2-6"/></svg><div><b>100% 말린 허브</b><span>인공 향료 없이 허브 본연의 향</span></div></div>
+    <div class="feat"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6B3FA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg><div><b>맥세이프 호환</b><span>작은 마그넷 내장, 붙였다 떼기 쉬움</span></div></div>
+    <div class="feat"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6B3FA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 4v16"/></svg><div><b>2cm 미니 사이즈</b><span>폰 디자인을 해치지 않는 크기</span></div></div>
+    <div class="feat"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6B3FA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><div><b>핸드메이드</b><span>하나하나 손으로 바느질해 완성</span></div></div>
+  </div>
+</div>
+
+<section id="products">
+  <div class="wrap">
+    <div class="title">
+      <h2 class="display">세 가지 방법으로 향기를 담아요</h2>
+      <p>원하는 허브 향을 고르고 장바구니에 담아 보세요.</p>
+    </div>
+    <div class="products">
+      <article class="card" data-name="행잉 퍼퓸">
+        <div class="img"><img src="images/hanging.jpg" alt="모시 향주머니를 폰 키링으로 단 모습"><span class="badge">모시 에디션</span></div>
+        <div class="body">
+          <div class="type">키링형</div>
+          <h3>행잉 퍼퓸</h3>
+          <p>촘촘한 한산 모시 복주머니에 허브를 담았어요. 폰 스트랩 고리에 달랑 걸어 두세요.</p>
+          <div class="spec">약 2 × 2cm · 매듭 끈 포함</div>
+          <b style="font-size:14px">허브 향 선택</b>
+          <div class="scents"></div>
+          <div class="buy"><span class="price">9,900원</span><button type="button" class="btn btn-dark add">장바구니 담기</button></div>
+        </div>
+      </article>
+      <article class="card" data-name="퍼퓸 마그넷">
+        <div class="img"><img src="images/magnet.jpg" alt="핑크 나일론 향주머니가 맥세이프로 폰에 붙어 있는 모습"><span class="badge">BEST</span></div>
+        <div class="body">
+          <div class="type">맥세이프형</div>
+          <h3>퍼퓸 마그넷</h3>
+          <p>반짝이는 핑크 나일론에 귀여운 캐릭터 프린트. 작은 마그넷이 들어 있어 폰 뒷면에 착 붙어요.</p>
+          <div class="spec">약 2 × 2cm · 마그넷 내장</div>
+          <b style="font-size:14px">허브 향 선택</b>
+          <div class="scents"></div>
+          <div class="buy"><span class="price">12,900원</span><button type="button" class="btn btn-dark add">장바구니 담기</button></div>
+        </div>
+      </article>
+      <article class="card" data-name="퍼퓸 카드">
+        <div class="img"><img src="images/card.jpg" alt="카드 크기의 핑크 향주머니가 지갑 카드 칸에 들어 있는 모습"><span class="badge">NEW</span></div>
+        <div class="body">
+          <div class="type">카드형</div>
+          <h3>퍼퓸 카드</h3>
+          <p>명함처럼 얇은 카드형 향주머니. 지갑이나 카드지갑에 넣으면 꺼낼 때마다 향긋해요.</p>
+          <div class="spec">약 9 × 5.5cm · 두께 3–4mm</div>
+          <b style="font-size:14px">허브 향 선택</b>
+          <div class="scents"></div>
+          <div class="buy"><span class="price">8,900원</span><button type="button" class="btn btn-dark add">장바구니 담기</button></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="set">
+      <div class="col" style="gap:10px;flex:1 1 420px">
+        <span style="font-size:14px;font-weight:700;color:#F7B8D0">BEST · 3종 세트</span>
+        <h3>폰에, 가방에, 지갑에. 한 번에 다 챙기기</h3>
+        <p>행잉 퍼퓸 + 퍼퓸 마그넷 + 퍼퓸 카드를 한 세트로. 친구 선물로도 좋아요.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column"><span class="old">31,700원</span><span style="font-size:30px;font-weight:700">26,900원</span></div>
+        <button type="button" class="btn btn-pink" id="addSet" style="min-height:52px">세트 담기</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:#fff">
+  <div class="wrap">
+    <div class="title"><h2 class="display">이렇게 사용해요</h2></div>
+    <div class="grid steps">
+      <div class="step"><span class="num">1</span><h3>붙이거나 달기</h3><p>마그넷형은 맥세이프 링에 대기만 하면 착. 키링형은 폰 스트랩 고리에 걸어 주세요.</p></div>
+      <div class="step"><span class="num">2</span><h3>살짝 눌러 향 깨우기</h3><p>향이 약해졌다 싶으면 손가락으로 주머니를 몇 번 꾹꾹 눌러 주세요. 허브 향이 다시 퍼져요.</p></div>
+      <div class="step"><span class="num">3</span><h3>한 달마다 바꾸기</h3><p>향은 약 한 달 정도 유지돼요. 계절마다 다른 허브로 바꿔 보는 것도 추천해요.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="herbs">
+  <div class="wrap split">
+    <div><img class="photo" src="images/hanging.jpg" alt="모시 원단 향주머니를 스마트폰 키링으로 단 모습"></div>
+    <div class="col" style="gap:18px">
+      <h2 class="display" style="font-size:clamp(30px,4vw,40px)">주머니 속 허브 이야기</h2>
+      <p class="lead" style="font-size:16px">햇볕에 천천히 말린 허브만 골라 담았어요. 기분에 맞게 골라 보세요.</p>
+      <div class="herb"><strong>라벤더</strong> · 포근하고 차분한 향. 잠들기 전, 공부할 때</div>
+      <div class="herb"><strong>로즈마리</strong> · 상쾌하고 깨끗한 향. 아침 등굣길, 출근길에</div>
+      <div class="herb"><strong>캐모마일</strong> · 달콤하고 부드러운 향. 기분 전환이 필요할 때</div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:#fff">
+  <div class="wrap faq">
+    <div class="title"><h2 class="display">자주 묻는 질문</h2></div>
+    <details><summary>맥세이프가 없는 폰에도 쓸 수 있나요?</summary><p>맥세이프 링 스티커를 케이스에 붙이면 사용할 수 있어요. 키링형이나 카드형을 고르셔도 좋아요.</p></details>
+    <details><summary>마그넷이 카드나 무선 충전에 영향을 주나요?</summary><p>교통카드·신용카드와 가까이 두지 않는 것을 권해요. 무선 충전할 때는 향주머니를 떼어 주세요.</p></details>
+    <details><summary>향은 얼마나 가나요?</summary><p>보관 환경에 따라 다르지만 약 한 달 정도 은은하게 유지돼요.</p></details>
+    <details><summary>물에 젖어도 괜찮나요?</summary><p>말린 허브가 들어 있어 물에 닿지 않게 해 주세요. 젖었다면 그늘에서 바로 말려 주세요.</p></details>
+  </div>
+</section>
+
+<div class="news">
+  <div class="wrap" style="max-width:820px">
+    <h2 class="display" style="font-size:34px">새로운 향 소식 받아보기</h2>
+    <p style="color:var(--text)">신제품과 계절 한정 허브 소식을 가장 먼저 알려 드려요.</p>
+    <form class="form" id="newsForm">
+      <label for="email" class="sr">이메일 주소</label>
+      <input id="email" type="email" placeholder="이메일 주소" required>
+      <button type="submit" class="btn btn-dark" style="min-height:52px">구독하기</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div><span style="font-family:'Jua',sans-serif;font-size:24px;color:#fff">Perfume in My Phone</span><span>폰에 붙이는 작은 허브 향주머니</span></div>
+    <div><span>상호: [상호명] · 대표: [대표자명]</span><span>사업자등록번호: [번호] · 통신판매업 신고: [번호]</span><span>고객센터: [연락처] · 평일 10:00–17:00</span></div>
+  </div>
+  <div class="copy">© 2026 Perfume in My Phone. 수업용 가상 쇼핑몰입니다.</div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var cart = 0, timer;
+  var countEl = document.getElementById('cartCount');
+  var toast = document.getElementById('toast');
+  function notify(msg, n){
+    cart += n; countEl.textContent = cart;
+    toast.textContent = msg; toast.classList.add('show');
+    clearTimeout(timer); timer = setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+  }
+  var scents = ['라벤더','로즈마리','캐모마일'];
+  document.querySelectorAll('.card').forEach(function(card){
+    var box = card.querySelector('.scents'), current = scents[0];
+    scents.forEach(function(s, i){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'scent'; b.textContent = s;
+      b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+      b.addEventListener('click', function(){
+        current = s;
+        box.querySelectorAll('.scent').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      });
+      box.appendChild(b);
+    });
+    card.querySelector('.add').addEventListener('click', function(){
+      notify(card.dataset.name + ' (' + current + ')을 장바구니에 담았어요', 1);
+    });
+  });
+  document.getElementById('addSet').addEventListener('click', function(){ notify('3종 세트를 장바구니에 담았어요', 3); });
+  document.getElementById('newsForm').addEventListener('submit', function(e){
+    e.preventDefault(); notify('구독해 주셔서 고마워요!', 0); this.reset();
+  });
+})();
+</script>
+</body>
+</html>
